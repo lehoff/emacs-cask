@@ -3,7 +3,7 @@
 
 (require 'tex-site)
 (load "auctex.el" nil t t)
-(load "preview-latex.el" nil t t)
+(load "preview.el" nil t t)
 
 (add-hook 'text-mode-hook
             '(lambda ()

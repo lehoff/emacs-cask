@@ -143,3 +143,46 @@
 (setq abbrev-file-name (concat emacs-config-dir "abbrev_defs"))
 (defconst *emacs-config-dir* (concat emacs-config-dir "/configs/" ""))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; configuration of packages
+
+;; A function to load config files
+(defun load-config-files (files)
+  (dolist (f files)
+    (load (expand-file-name
+           (concat *emacs-config-dir* f)))
+    (message "Loaded config file: %s" file)))
+
+(load-config-files 
+ '("defuns"
+   "global"
+   "init-auto-complete"
+   "init-auctex"
+   "init-erlang"
+   "init-hippie-expand"
+
+   "init-org-mode"
+   "init-flymake"
+   "init-elixir"
+
+    "init-mu4e"
+    "init-markdown"
+    "init-adoc-mode"
+    "init-tuareg"
+
+;;                     "init-plantuml-mode"
+;;                     "init-twelf"
+;;                     "init-tags"
+;;                     "init-semantic"
+
+   ))
+
+
+
+;; Get our custom configuration loaded
+(load custom-file 'noerror)
+
+
+
+;;; init.el ends here
+(server-start)

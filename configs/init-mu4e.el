@@ -42,7 +42,7 @@
 
 ;; the headers to show in the headers list -- a pair of a field
 ;; and its width, with `nil' meaning 'unlimited'
-;; (better only use that for the last field.
+;; better only use that for the last field.
 ;; These are the defaults:
 (setq mu4e-headers-fields
       '( (:date          .  18)
@@ -107,7 +107,7 @@
  ;; new one inspired by http://stackoverflow.com/questions/16763033/wanderlust-osx-emacs-smtp-certification-failed
  ;; starttls-use-gnutls t
  ;; starttls-gnutls-program "/usr/bin/openssl"
- ;; starttls-extra-arguments "s_client -ssl2 -connect %s:%p")
+ ;; starttls-extra-arguments "s_client -ssl2 -connect %s:%p"
  
  smtpmail-default-smtp-server "mail.erlang-solutions.com"
  smtpmail-smtp-server "mail.erlang-solutions.com"
@@ -171,29 +171,8 @@
 
 
 ;; automatic refiling from http://www.djcbsoftware.nl/code/mu/mu4e/Refiling-message.html
-;; (defvar my-mu4e-subject-alist '(("kolloqui\\(um\\|a\\)" . "/Kolloquium")
-;;                                 ("Calls" . "/Calls")
-;;                                 ("Lehr" . "/Lehre")
-;;                                 ("webseite\\|homepage\\|website" . "/Webseite"))
-;;   "List of subjects and their respective refile folders.")
-;; (defvar my-mu4e-senders-alist '(("redmine@erlang-solutions.com" . "Redmine")
-;;                                 (".*\.github.com" . "Github"))
-;;   "List of all senders and their refile folders.")
-
-;; (defun my-mu4e-refile-folder-function (msg)
-;;   "Set the refile folder for MSG."
-;;   (let ((from (mu4e-message-field msg :from))
-;;         (folder (or (cdar (member* from my-mu4e-senders-alist
-;;                                    :test #'(lambda (x y)
-;;                                              (string-match (car y) x))))
-;;                     "/Inbox")))
-;;     folder))
 
 ;; bookmarks for easy access
-;;(add-to-list 'mu4e-bookmarks
-;;             '("NOT to:redmine@erlang-solutions.com"       "Not tasks"     ?m))
-;; OVERRIDING the standard list of bookmarks
-;; (setq my-bookmark-filter "(not erlang-questions@erlang.org) and (not from:github.com) and (not from:redmine@erlang-solutions.com)")
 (setq mu4e-bookmarks
       '( ("flag:unread AND NOT flag:trashed"     "Unread messages"      ?u)
          ("maildir:/INBOX" "INBOX" ?i)
