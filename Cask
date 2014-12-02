@@ -23,6 +23,7 @@
 (depends-on "markdown-mode")
 (depends-on "org-plus-contrib")
 (depends-on "pallet")
+(depends-on "plantuml-mode")
 (depends-on "ruby-end")
 (depends-on "sml-mode")
 (depends-on "tuareg")

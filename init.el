@@ -170,7 +170,7 @@
     "init-adoc-mode"
     "init-tuareg"
 
-;;                     "init-plantuml-mode"
+    "init-plantuml-mode"
 ;;                     "init-twelf"
 ;;                     "init-tags"
 ;;                     "init-semantic"
