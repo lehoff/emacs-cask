@@ -21,4 +21,7 @@
 
 (require 'alchemist)
 
+(require 'flymake-elixir)
+(add-hook 'elixir-mode-hook 'flymake-elixir-load)
+
 ;;; init-elixir.el ends here

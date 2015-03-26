@@ -9,11 +9,11 @@
 ;; from old init.el
 
 ;; EQC Emacs Mode -- Configuration Start
-(add-to-list 'load-path "/Users/th/Library/Erlang/lib/eqc-1.30.5/emacs/")
+(add-to-list 'load-path "/Users/th/Library/Erlang/lib/eqc-1.33.3/emacs/")
 (autoload 'eqc-erlang-mode-hook "eqc-ext" "EQC Mode" t)
 (add-hook 'erlang-mode-hook 'eqc-erlang-mode-hook)
 (setq eqc-max-menu-length 30)
-(setq eqc-root-dir "/Users/th/Library/Erlang/lib/eqc-1.30.5")
+(setq eqc-root-dir "/Users/th/Library/Erlang/lib/eqc-1.33.3")
 ;; EQC Emacs Mode -- Configuration End
 
 
@@ -92,8 +92,8 @@
               (concat "/Users/th/Library/Erlang/lib/"))
       (set-fontset-font "fontset-default"
                         'unicode
-                        '("Menlo" . "iso10646-1"))
-      (set-frame-font "Menlo-11")
+                        '("Inconsolata" . "iso10646-1"))
+      (set-frame-font "Inconsolata-13")
       (set-frame-size (selected-frame) 120 65)))
 
 
@@ -102,14 +102,14 @@
       #'(lambda ()
           (add-to-list 'default-frame-alist '(left   . 0))
           (add-to-list 'default-frame-alist '(top    . 0))
-          (add-to-list 'default-frame-alist '(height . 65))
+          (add-to-list 'default-frame-alist '(height . 60))
           (add-to-list 'default-frame-alist '(width  . 120))))
 
 ;; from http://stackoverflow.com/questions/92971/how-do-i-set-the-size-of-emacs-window
 (setq default-frame-alist
       '((top . 20) (left . 200)
-        (width . 120) (height . 65)
-        (font . "Menlo-11")))
+        (width . 120) (height . 60)
+        (font . "Inconsolata-13")))
         
 
 (setq disabled-command-function nil)
@@ -126,11 +126,11 @@
 ;;; customisations
 (if (string-equal "darwin" (symbol-name system-type))
   (progn
-    (set-frame-font "Menlo-11")))
+    (set-frame-font "Inconsolata-13")))
 
 (load-theme 'manoj-dark)
 (set-face-attribute 'mode-line-buffer-id nil :background "black")
-(set-face-font 'mode-line "Menlo-11")
+(set-face-font 'mode-line "Inconsolata-13")
 (set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
 
 
@@ -168,9 +168,10 @@
     "init-mu4e"
     "init-markdown"
     "init-adoc-mode"
-    "init-tuareg"
+    "init-ack"
+;;    "init-tuareg"
 
-    "init-plantuml-mode"
+;;    "init-plantuml-mode"
 ;;                     "init-twelf"
 ;;                     "init-tags"
 ;;                     "init-semantic"
@@ -182,7 +183,8 @@
 ;; Get our custom configuration loaded
 (load custom-file 'noerror)
 
-
+(when (eq system-type 'darwin)
+ (exec-path-from-shell-initialize))
 
 ;;; init.el ends here
 (server-start)

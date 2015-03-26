@@ -15,16 +15,16 @@
 ;; the next are relative to `mu4e-maildir'
 ;; instead of strings, they can be functions too, see
 ;; their docstring or the chapter 'Dynamic folders'
-(setq mu4e-sent-folder   "/Sent"
-      mu4e-drafts-folder "/Drafts"
-      mu4e-trash-folder  "/Trash"
-      mu4e-refile-folder "/Archives")
+(setq mu4e-sent-folder   "/[Gmail].Sent Mail"
+      mu4e-drafts-folder "/[Gmail].Drafts"
+      mu4e-trash-folder  "/[Gmail].Trash"
+      mu4e-refile-folder "/[Gmail].All Mail")
 
 ;; the maildirs you use frequently; access them with 'j' ('jump')
 (setq   mu4e-maildir-shortcuts
-        '(("/Archives"    . ?a)
-          ("/Inbox"       . ?i)
-          ("/Sent"        . ?s)
+        '(("/[Gmail].All Mail"    . ?a)
+          ("/INBOX"       . ?i)
+          ("/[Gmail].Sent Mail"        . ?s)
           ))
 
 ;; a  list of user's e-mail addresses
@@ -109,15 +109,21 @@
  ;; starttls-gnutls-program "/usr/bin/openssl"
  ;; starttls-extra-arguments "s_client -ssl2 -connect %s:%p"
  
- smtpmail-default-smtp-server "mail.erlang-solutions.com"
- smtpmail-smtp-server "mail.erlang-solutions.com"
- smtpmail-local-domain "erlang-solutions.com"
+;; smtpmail-default-smtp-server "mail.erlang-solutions.com"
+ ;; smtpmail-smtp-server "mail.erlang-solutions.com"
+ ;; smtpmail-local-domain "erlang-solutions.com"
 
+ smtpmail-stream-type 'starttls
+ smtpmail-default-smtp-server "smtp.gmail.com"
+ smtpmail-smtp-server "smtp.gmail.com"
+ smtpmail-smtp-service 587
+
+ 
 ;; smtpmail-stream-type 'starttls
  ;; smtpmail-default-smtp-server "smtp.gmail.com"
  ;; smtpmail-smtp-server "smtp.gmail.com"
 
- smtpmail-smtp-service 25
+; smtpmail-smtp-service 25
 ;;  smtpmail-smtp-service 993
  smtpmail-debug-info t
  ;; if you need offline mode, set these -- and create the queue dir
@@ -179,14 +185,14 @@
          ("maildir:/INBOX and flag:replied" "Filable" ?f)
          ("date:today..now and maildir:/INBOX" "Today's messages"     ?t)
          ("maildir:/INBOX and date:7d..now"      "Last 7 days"          ?w)
-         ("maildir:/INBOX and date:31d..now  "    "Last month"          ?m)
+         ("maildir:/INBOX and date:31d..now"    "Last month"          ?m)
          ("maildir:/erlang-questions" "erlang-questions" ?e)
          ("mime:image/*"                         "Messages with images" ?p)
          ("(maildir:/ActivityStream or maildir:/INBOX or maildir:/Redmine) and from:redmine@erlang-solutions.com"
           "Redmine"              ?r)
          ("(maildir:/ActivityStream or maildir:/INBOX or maildir:/Github)  and from:github.com" "Github"               ?g)
          ("maildir:/ActivityStream and (not from:github.com) and (not from:redmine@erlang-solutions.com)" "Later"  ?l)
-         ("(maildir:/INBOX or maildir:/ActivityStream) and (from:alarm@erlang-solutions.com or from:nagios@monitoring.erlang-solutions.com or from:zimbra@erlang-solutions.com or from:graylog@erlang-solutions.com)"
+         ("(maildir:/INBOX or maildir:/ActivityStream) and (from:alarm@erlang-solutions.com or from:nagios@monitoring.erlang-solutions.com  or from:graylog@erlang-solutions.com)"
           "Alarms" ?a)
          ))
 
