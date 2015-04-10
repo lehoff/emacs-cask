@@ -182,6 +182,7 @@
 (setq mu4e-bookmarks
       '( ("flag:unread AND NOT flag:trashed"     "Unread messages"      ?u)
          ("maildir:/INBOX" "INBOX" ?i)
+         ("maildir:/INBOX and not flag:list" "INBOX-me" ?j)
          ("maildir:/INBOX and flag:replied" "Filable" ?f)
          ("date:today..now and maildir:/INBOX" "Today's messages"     ?t)
          ("maildir:/INBOX and date:7d..now"      "Last 7 days"          ?w)
