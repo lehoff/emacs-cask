@@ -1,0 +1,53 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Fri Oct  7 22:17:13 2016
+;; Desktop file format version 208
+;; Emacs version 25.0.95.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (22520 22313 980323 0) (desktop . "208") "th@iniesta.local" nil nil ((((font-backend mac-ct) (fontsize . 0) (font . "-*-Inconsolata-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (vertical-scroll-bars . right) (horizontal-scroll-bars) (foreground-color . "WhiteSmoke") (background-color . "black") (line-spacing) (left-fringe . 8) (right-fringe . 8) (menu-bar-lines . 1) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 15) (scroll-bar-height . 0) (alpha) (fullscreen) (display-type . color) (background-mode . dark) (cursor-color . "orchid") (environment) (scroll-bar-background . "grey75") (scroll-bar-foreground . "WhiteSmoke") (mouse-color . "OrangeRed") (border-color . "gold") (display . "iniesta.local") (visibility . t) (frameset--id . "198C-5342-D3E7-2FC6") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (right-divider-width . 0) (bottom-divider-width . 0) (icon-name) (explicit-name) (tool-bar-position . top) (height . 58) (width . 185) (left . 234) (top . 98)) ((min-height . 4) (min-width . 10) (min-height-ignore . 4) (min-width-ignore . 7) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 56) (min-pixel-width . 70) (min-pixel-height-ignore . 56) (min-pixel-width-ignore . 49) (min-pixel-height-safe . 14) (min-pixel-width-safe . 14)) leaf (pixel-width . 1326) (pixel-height . 798) (total-width . 189) (total-height . 57) (normal-height . 1.0) (normal-width . 1.0) (buffer "init-bookmark-plus.el" (selected . t) (hscroll . 0) (fringes 8 8 nil) (margins nil) (scroll-bars nil 3 t nil 0 nil) (vscroll . 0) (dedicated) (point . 21) (start . 1))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq register-alist nil)
+(setq file-name-history '("~/.emacs.d/configs/init-desktop-plus.el" "~/.emacs.d/init.el" "~/org/admin.org" "~/.emacs.d/configs/init-elscreen.el" "~/.emacs.d/.cask/25.0.95.1/elpa/desktop+-20160330.612/desktop+-autoloads.el" "~/org/tech-leadership.org" "~/org/youngsters.org" "~/org/wildebeest.org" "~/org/visual_erlang.org" "~/org/trips.org" "~/org/training.org" "~/org/tools.org" "~/org/time_series.org" "~/org/this_week.org" "~/org/tech_debt.org" "~/org/syncfree.org" "~/org/stg.org" "~/org/setup.org" "~/org/services.org" "~/org/roadmap.org"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/Users/th/.emacs.d/configs/init-bookmark-plus.el"
+  "init-bookmark-plus.el"
+  'emacs-lisp-mode
+  '(auto-fill-mode visual-line-mode helm-mode auto-complete-mode TeX-PDF-mode)
+  21
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (column-number-mode . t) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/th/.emacs.d/init.el"
+  "init.el"
+  'emacs-lisp-mode
+  '(auto-fill-mode visual-line-mode helm-mode auto-complete-mode TeX-PDF-mode hi-lock-mode)
+  5944
+  '(2575 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (column-number-mode . t) (truncate-lines))
+  '((mark-ring (555))))
+
+(desktop-create-buffer 208
+  "/Users/th/.emacs.d/configs/init-desktop-plus.el"
+  "init-desktop-plus.el"
+  'emacs-lisp-mode
+  '(auto-fill-mode visual-line-mode helm-mode auto-complete-mode TeX-PDF-mode)
+  44
+  '(535 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (column-number-mode . t) (truncate-lines))
+  '((mark-ring (45))))
+

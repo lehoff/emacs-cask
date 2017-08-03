@@ -84,3 +84,7 @@
 (setq org-mobile-inbox-for-pull "~/org/refile.org")
 ;; Set to <your Dropbox root directory>/MobileOrg.
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+
+
+ (setq org-clock-into-drawer "LOGBOOK")
+ (setq org-log-into-drawer "NOTES")

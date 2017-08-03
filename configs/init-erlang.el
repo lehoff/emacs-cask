@@ -10,8 +10,10 @@
 
 
 (require 'erlang-start)
-;; (require 'distel)
-;; (distel-setup)
+
+;(add-to-list 'load-path "~/tools/distel/elisp")
+;(require 'distel)
+;(distel-setup)
 
 ;; Wrangler
 
@@ -19,14 +21,14 @@
 ;; (add-to-list 'load-path
 ;;              "/usr/local/Cellar/wrangler/0.9.3.1/share/wrangler/elisp")
 (add-to-list 'load-path
-             "/usr/local/lib/erlang/lib/wrangler-1.1.01/elisp")
-(add-to-list 'load-path
-             "~/.emacs.d/el-get/distel/elisp")
+             "/usr/local/lib/erlang/lib/wrangler-1.2.0/elisp")
+;(add-to-list 'load-path
+;             "~/.emacs.d/el-get/distel/elisp")
 (require 'wrangler)
 
 (add-hook 'erlang-mode-hook 'esk-prog-mode-hook)
 
-(setq erlang-indent-level 2)
+;(setq erlang-indent-level 2)
 
 ;; Align (thanks @eproxus)
 (add-hook 'align-load-hook
@@ -64,3 +66,7 @@
   (insert "%%% Local Variables:\n")
   (insert "%%% erlang-indent-level: 2\n")
   (insert "%%% End:"))
+
+
+;;; (require 'flycheck-dialyzer)
+;;; (add-hook 'erlang-mode-hook 'flycheck-mode)

@@ -1,6 +1,14 @@
+
 ;; based on https://github.com/rdallasgray/pallet
 
-(require 'cask "/usr/local/Cellar/cask/0.7.2/cask.el")
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
+(require 'cask "/usr/local/Cellar/cask/0.7.4/cask.el")
 (cask-initialize)
 (require 'pallet)
 (pallet-mode t)
@@ -33,6 +41,11 @@
 (when (eq system-type 'darwin)
   (setq mac-option-modifier 'none))
 
+
+;(setq mac-control-modifier 'ctrl)      
+
+
+
 ;; keyboard shortcuts
 (global-set-key [s-left] 'beginning-of-line)
 (global-set-key [s-right] 'end-of-line)
@@ -41,12 +54,23 @@
 (global-set-key [M-right] 'forward-word)
 (global-set-key [M-left] 'backward-word)
 
-(global-set-key [f4] 'mu4e-update-mail-and-index)
-(global-set-key [C-f4] 'smtpmail-send-queued-mail)
-(global-set-key [f5] 'mu4e)
+(global-set-key [f4] 'notmuch-jump-search)
+(global-set-key [f5] 'notmuch)
+(global-set-key [f8] 'desktop+-load)
+                
+
 (global-visual-line-mode 1)
 (delete-selection-mode 1)
 
+;; helm
+(helm-mode 1)
+(global-set-key (kbd "M-o") 'helm-mini)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x C-b") 'helm-mini) ; override iswitchb
+(global-set-key (kbd "C-o") 'helm-projectile)
+(global-set-key (kbd "C-x b") 'helm-mini)   ;
+(helm-autoresize-mode)
 
 
 ;;; Spelling
@@ -128,7 +152,7 @@
   (progn
     (set-frame-font "Inconsolata-13")))
 
-(load-theme 'manoj-dark)
+(load-theme 'hc-zenburn)
 (set-face-attribute 'mode-line-buffer-id nil :background "black")
 (set-face-font 'mode-line "Inconsolata-13")
 (set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
@@ -143,6 +167,25 @@
 (setq abbrev-file-name (concat emacs-config-dir "abbrev_defs"))
 (defconst *emacs-config-dir* (concat emacs-config-dir "/configs/" ""))
 
+;; EQC Emacs Mode -- Configuration Start
+(add-to-list 'load-path "/usr/local/lib/erlang/lib/eqc-1.38.3/emacs/")
+(autoload 'eqc-erlang-mode-hook "eqc-ext" "EQC Mode" t)
+(add-hook 'erlang-mode-hook 'eqc-erlang-mode-hook)
+(setq eqc-max-menu-length 30)
+(setq eqc-root-dir "/usr/local/lib/erlang/lib/eqc-1.38.3")
+
+
+;;; colour customisation
+;(set-face-attribute 'markup-meta-face nil :foreground "PaleVioletRed1"
+;       :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant
+;       'normal :weight 'normal :height 90 :width 'normal  :family "Monospace")
+;(set-face-attribute 'markup-meta-hide-face nil :inherit markup-meta-face :foreground "dark magenta" :height 1)
+;(set-face-attribute 'markup-attribute-face nil :foreground 'PaleVioletRed1 :height 1)
+
+
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; configuration of packages
 
@@ -151,21 +194,27 @@
   (dolist (f files)
     (load (expand-file-name
            (concat *emacs-config-dir* f)))
-    (message "Loaded config file: %s" file)))
+    (message "Loaded config file: %s" f)))
 
 (load-config-files 
  '("defuns"
    "global"
+   "init-elscreen"
+   "init-desktop-plus"
+   "init-bookmark-plus"
    "init-auto-complete"
    "init-auctex"
    "init-erlang"
    "init-hippie-expand"
-
+;;;   "init-flycheck"
+   
+   "init-projectile"
    "init-org-mode"
    "init-flymake"
    "init-elixir"
 
-    "init-mu4e"
+   "init-notmuch"
+;;    "init-mu4e"
     "init-markdown"
     "init-adoc-mode"
     "init-ack"
