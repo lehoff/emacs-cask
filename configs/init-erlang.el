@@ -17,13 +17,17 @@
 
 ;; Wrangler
 
+;; This goes away in a future Emacs for Erlang, so as a hack:
+(defconst erlang-xemacs-p (string-match "Lucid\\|XEmacs" emacs-version)
+  "Non-nil when running under XEmacs or Lucid Emacs.")
+
 ;; install with brew!
-;; (add-to-list 'load-path
-;;              "/usr/local/Cellar/wrangler/0.9.3.1/share/wrangler/elisp")
-(add-to-list 'load-path
-             "/usr/local/lib/erlang/lib/wrangler-1.2.0/elisp")
 ;(add-to-list 'load-path
-;             "~/.emacs.d/el-get/distel/elisp")
+;             "/usr/local/lib/erlang/lib/wrangler-1.2.0/elisp")
+;(add-to-list 'load-path
+                                        ;             "~/.emacs.d/el-get/distel/elisp")
+(add-to-list 'load-path
+             "~/Library/Erlang/lib/erlang/lib/wrangler-1.2.0/elisp")
 (require 'wrangler)
 
 (add-hook 'erlang-mode-hook 'esk-prog-mode-hook)

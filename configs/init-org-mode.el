@@ -1,6 +1,7 @@
 ;;(require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
+
 ;;(require 'org-mac-link)
 (setq org-default-notes-file "~/org/notes.org")
 (setq org-capture-templates
@@ -9,9 +10,14 @@
 
 (setq org-clock-persist 'history)
 ;; (org-clock-persistence-insinuate)
-(setq org-log-done 'note)
+(setq org-log-done 'time)
+
+(setq org-duration-format 'h:mm)
 
 (setq org-startup-indented 'indented)
+
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "WIP(p)" "WAIT(w)" "|" "DONE(d)" "CANCELED(c)")))
 
 ;; (add-hook 'org-mode-hook 'my-org-mode-autosave-settings)
 ;; (defun my-org-mode-autosave-settings () "Customisation of org-mode autosave"
@@ -53,10 +59,40 @@
 (setq org-agenda-files (quote ("~/org")))
 (setq org-clock-in-resume t)
 (setq org-clock-persist t)
-(setq org-clock-report-include-clocking-task t)
-(setq org-log-done (quote note))
+(setq org-clock-report-include-clocking-task t):
 (setq org-modules (quote (org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mew org-mhe org-rmail org-vm org-wl org-w3m)))
 (setq org-support-shift-select t)
+
+;;; from
+;;; https://stackoverflow.com/questions/11384516/how-to-make-all-org-files-under-a-folder-added-in-agenda-list-automatically
+
+;; recursively find .org files in provided directory
+;; modified from an Emacs Lisp Intro example
+(defun sa-find-org-file-recursively (&optional directory filext)
+  "Return .org and .org_archive files recursively from DIRECTORY.
+If FILEXT is provided, return files with extension FILEXT instead."
+  (interactive "DDirectory: ")
+  (let* (org-file-list
+	 (case-fold-search t)	      ; filesystems are case sensitive
+	 (file-name-regex "^[^.#].*") ; exclude dot, autosave, and backup files
+	 (filext (or filext "org$\\\|org_archive"))
+	 (fileregex (format "%s\\.\\(%s$\\)" file-name-regex filext))
+	 (cur-dir-list (directory-files directory t file-name-regex)))
+    ;; loop over directory listing
+    (dolist (file-or-dir cur-dir-list org-file-list) ; returns org-file-list
+      (cond
+       ((file-regular-p file-or-dir) ; regular files
+	(if (string-match fileregex file-or-dir) ; org files
+	    (add-to-list 'org-file-list file-or-dir)))
+       ((file-directory-p file-or-dir)
+	(dolist (org-file (sa-find-org-file-recursively file-or-dir filext)
+			  org-file-list) ; add files found to result
+	  (add-to-list 'org-file-list org-file)))))))
+
+
+(setq org-agenda-text-search-extra-files
+      (append (sa-find-org-file-recursively "~/org/" "org_archive")))
+
 
 (setq org-time-clocksum-format
 '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
@@ -71,10 +107,10 @@
 ;;;(global-set-key (kbd "<f8>") 'lehoff/org-archive-subtree-keep-node)
 ;;; (global-set-key (kbd "C-<f8>") 'org-archive-subtree)
 (global-set-key (kbd "<f9>") 'org-agenda)
-(global-set-key (kbd "C-<f9>") 'org-search-view)
+(global-set-key (kbd "<f10>") 'org-search-view)
 (global-set-key (kbd "<f7>") 'org-save-all-org-buffers)
-(global-set-key (kbd "<f6>") 'org-clock-in)
-(global-set-key (kbd "C-<f6>") 'org-clock-out)
+(global-set-key (kbd "<f5>") 'org-clock-in)
+(global-set-key (kbd "<f6>") 'org-clock-out)
 
 
 ;;; MobileOrg set-up
