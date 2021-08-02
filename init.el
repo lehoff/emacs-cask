@@ -8,7 +8,7 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(require 'cask "/usr/local/Cellar/cask/0.7.4/cask.el")
+(require 'cask "/usr/local/Cellar/cask/0.8.7/cask.el")
 (cask-initialize)
 (require 'pallet)
 (pallet-mode t)
@@ -42,7 +42,7 @@
   (setq mac-option-modifier 'none))
 
 
-;(setq mac-control-modifier 'ctrl)      
+;;(setq mac-control-modifier 'ctrl)      
 
 
 
@@ -54,23 +54,23 @@
 (global-set-key [M-right] 'forward-word)
 (global-set-key [M-left] 'backward-word)
 
-(global-set-key [f4] 'notmuch-jump-search)
-(global-set-key [f5] 'notmuch)
-(global-set-key [f8] 'desktop+-load)
+;(global-set-key [f4] 'notmuch-jump-search)
+;(global-set-key [f5] 'notmuch)
+;(global-set-key [f8] 'desktop+-load)
                 
 
 (global-visual-line-mode 1)
 (delete-selection-mode 1)
 
 ;; helm
-(helm-mode 1)
-(global-set-key (kbd "M-o") 'helm-mini)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-x C-b") 'helm-mini) ; override iswitchb
-(global-set-key (kbd "C-o") 'helm-projectile)
-(global-set-key (kbd "C-x b") 'helm-mini)   ;
-(helm-autoresize-mode)
+;(helm-mode 1)
+;(global-set-key (kbd "M-o") 'helm-mini)
+;(global-set-key (kbd "M-x") 'helm-M-x)
+;(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;(global-set-key (kbd "C-x C-b") 'helm-mini) ; override iswitchb
+;(global-set-key (kbd "C-o") 'helm-projectile)
+;(global-set-key (kbd "C-x b") 'helm-mini)   ;
+;(helm-autoresize-mode)
 
 
 ;;; Spelling
@@ -134,7 +134,7 @@
       '((top . 20) (left . 200)
         (width . 120) (height . 60)
         (font . "Inconsolata-13")))
-        
+;;        (font . "Hasklug Nerd Font-13")))
 
 (setq disabled-command-function nil)
 
@@ -151,10 +151,12 @@
 (if (string-equal "darwin" (symbol-name system-type))
   (progn
     (set-frame-font "Inconsolata-13")))
+;;    (set-frame-font "Hasklug Nerd Font-13")))
 
 (load-theme 'hc-zenburn)
 (set-face-attribute 'mode-line-buffer-id nil :background "black")
 (set-face-font 'mode-line "Inconsolata-13")
+;; (set-face-font 'mode-line ""Hasklug Nerd Font-13")
 (set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
 
 
@@ -184,6 +186,7 @@
 
 
 
+(add-hook 'auto-save-hook 'org-save-all-org-buffers)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -201,7 +204,7 @@
    "global"
    "init-elscreen"
    "init-desktop-plus"
-   "init-bookmark-plus"
+;   "init-bookmark-plus"
    "init-auto-complete"
    "init-auctex"
    "init-erlang"
@@ -213,11 +216,14 @@
    "init-flymake"
    "init-elixir"
 
-   "init-notmuch"
+;;   "init-notmuch"
 ;;    "init-mu4e"
     "init-markdown"
     "init-adoc-mode"
-    "init-ack"
+;    "init-ack"
+    "init-ponylang"
+;;    "init-coconut"
+    "init-haskell"
 ;;    "init-tuareg"
 
 ;;    "init-plantuml-mode"

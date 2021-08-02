@@ -1,7 +1,8 @@
 
-(setq erl-top "/usr/local/lib/erlang")
+(setq erlang-version "21.3.8.9")
+(setq erl-top (format "%s/%s" "~/.asdf/installs/erlang" erlang-version))
 
-(setq erlang-root-dir "/usr/local/lib/erlang")
+(setq erlang-root-dir erl-top)
 ;; (setq tools-ver "2.6.11")
 ;; (setq load-path (cons (concat erlang-root-dir "/lib/tools-" tools-ver "/emacs")
 ;;                       load-path))
@@ -17,6 +18,8 @@
 
 ;; Wrangler
 
+
+;; NOTE: check if ~/.erlang has a code path to the Wrangler ebin dir
 ;; This goes away in a future Emacs for Erlang, so as a hack:
 (defconst erlang-xemacs-p (string-match "Lucid\\|XEmacs" emacs-version)
   "Non-nil when running under XEmacs or Lucid Emacs.")
@@ -26,8 +29,10 @@
 ;             "/usr/local/lib/erlang/lib/wrangler-1.2.0/elisp")
 ;(add-to-list 'load-path
                                         ;             "~/.emacs.d/el-get/distel/elisp")
+;(add-to-list 'load-path
+                                        ;             "~/Library/Erlang/lib/erlang/lib/wrangler-1.2.0/elisp")
 (add-to-list 'load-path
-             "~/Library/Erlang/lib/erlang/lib/wrangler-1.2.0/elisp")
+             "~/tools/wrangler/elisp")
 (require 'wrangler)
 
 (add-hook 'erlang-mode-hook 'esk-prog-mode-hook)

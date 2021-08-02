@@ -1,6 +1,3 @@
-(require 'elscreen-persist)
-(elscreen-start)
-
 ;; -----------------------------------------------------------------------------
 ;; Session management
 ;; - elscreen
@@ -9,7 +6,7 @@
 ;; - so we have elscreen and desktop working together to create a sessions
 ;; -----------------------------------------------------------------------------
 
-(require 'elscreen-persist)
+;;(require 'elscreen-persist)
 (elscreen-start)
 
 ;; (defvar my-session-dir

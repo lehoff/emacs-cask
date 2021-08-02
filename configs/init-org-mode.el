@@ -17,7 +17,7 @@
 (setq org-startup-indented 'indented)
 
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "WIP(p)" "WAIT(w)" "|" "DONE(d)" "CANCELED(c)")))
+      '((sequence "TODO(t)" "WIP(p)" "WAIT(w)" "REVIEW(r)" "|" "DONE(d)" "CANCELED(c)")))
 
 ;; (add-hook 'org-mode-hook 'my-org-mode-autosave-settings)
 ;; (defun my-org-mode-autosave-settings () "Customisation of org-mode autosave"
@@ -111,6 +111,8 @@ If FILEXT is provided, return files with extension FILEXT instead."
 (global-set-key (kbd "<f7>") 'org-save-all-org-buffers)
 (global-set-key (kbd "<f5>") 'org-clock-in)
 (global-set-key (kbd "<f6>") 'org-clock-out)
+
+
 
 
 ;;; MobileOrg set-up
